@@ -9,38 +9,41 @@ using namespace std;
 
 Book :: Book()
 {
-  Author = "";
-  ISBN = "";
+  LibType = BOOK;
+  Author = ISBN = "";
   CopyNumber = -1;
 }
 
 Book :: Book (const Book & S)
 {
+  LibType = BOOK;
   Author = S.Author;
   ISBN = S.ISBN;
   Type = S.Type;
   CopyNumber = S.CopyNumber;
   CheckedOut = S.CheckedOut;
-  // Deep Copy Member?
+  CheckedOutBy = new Member (*CheckedOutBy);
 }
 
 Book :: ~Book()
 {
-  // Empty Destructor
+  // This descructor currently does nothing.
 }
 
 Book :: operator = (const Book & S)
 {
+  LibType = BOOK;
   Author = S.Author;
   ISBN = S.ISBN;
   Type = S.Type;
   CopyNumber = S.CopyNumber;
   CheckedOut = S.CheckedOut;			
-  // Deep Copy Member?
+  CheckedOutBy = new Member (*CheckedOutBy);
 }
 
 LibType Book :: IsA () const
 {
+  return BOOK;
 }
 
 void Book :: Checkout ()
