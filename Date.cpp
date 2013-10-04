@@ -58,6 +58,7 @@ int Date :: GetYear () const
 
 int Date :: operator - (const Date & D) const
 {
+  // Not sure how well this will work, just an idea.
   int yrD = year - D.year * 365;
   int moD = month - D.month * 30;
   int daD = day - D.day;
@@ -88,7 +89,7 @@ int Date :: operator > (const Date & D) const
 
 istream & operator >>  (istream & ins, Date & D)
 {
-  // NEED TO KNOW INFILE
+  // Need to know format of input file before implementing.
 }
 
 ostream & operator << (ostream & outs, const Date & D)
